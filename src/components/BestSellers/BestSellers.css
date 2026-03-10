@@ -1,0 +1,135 @@
+.best-sellers {
+    padding: 80px 0;
+    background: #fafafa;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 34px;
+    margin-bottom: 50px;
+    font-weight: 600;
+}
+
+.best-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.best-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: 0.4s;
+}
+
+.best-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.best-image {
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.best-image img {
+    width: 100%;
+    transition: 0.4s;
+}
+
+.best-card:hover img {
+    transform: scale(1.1);
+}
+
+.price {
+    color: #c9a227;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+.view-btn {
+    padding: 10px 25px;
+    border: none;
+    background: #c9a227;
+    color: white;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.view-btn:hover {
+    background: #b8951f;
+}
+
+.best-sellers {
+    padding: 80px 0;
+    background: #fafafa;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 34px;
+    margin-bottom: 50px;
+    font-weight: 600;
+}
+
+/* CARD */
+
+.best-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: 0.4s;
+}
+
+.best-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.best-image {
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.best-image img {
+    width: 100%;
+    transition: 0.4s;
+}
+
+.best-card:hover img {
+    transform: scale(1.1);
+}
+
+.price {
+    color: #c9a227;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+.view-btn {
+    padding: 10px 25px;
+    border: none;
+    background: #c9a227;
+    color: white;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.view-btn:hover {
+    background: #b8951f;
+}
+
+/* SWIPER ARROWS */
+
+.swiper-button-next,
+.swiper-button-prev {
+    padding-bottom:30px ;
+    color: #c9a227;
+}
