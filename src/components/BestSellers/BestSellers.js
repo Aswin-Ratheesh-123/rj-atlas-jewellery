@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./BestSellers.css";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -7,88 +7,116 @@ import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
+import { Link } from "react-router-dom";
+
 function BestSellers() {
 
-const products = [
-  {
-    id: 1,
-    name: "Gold Necklace",
-    price: "₹95,000",
-    image: "https://images.unsplash.com/photo-1611652022419-a9419f74343d"
-  },
-  {
-    id: 2,
-    name: "Diamond Ring",
-    price: "₹65,000",
-    image: "https://images.unsplash.com/photo-1605106702734-205df224ecce"
-  },
-  {
-    id: 3,
-    name: "Gold Bangles",
-    price: "₹75,000",
-    image: "https://images.unsplash.com/photo-1605106702734-205df224ecce"
-  },
-  {
-    id: 4,
-    name: "Diamond Earrings",
-    price: "₹55,000",
-    image: "https://images.unsplash.com/photo-1599643477877-530eb83abc8e"
-  }
-];
+    const [products, setProducts] = useState([]);
 
-return (
+    useEffect(() => {
 
-<section className="best-sellers">
+        fetch("http://localhost:5000/api/products")
+            .then(res => res.json())
+            .then(data => {
 
-<div className="container">
+                let items = data.slice(0, 8);
 
-<h2 className="section-title">Best Sellers</h2>
+                // ✅ FIX 1: ensure enough slides
+                let finalItems = [];
 
-<Swiper
-modules={[Navigation, Autoplay]}
-spaceBetween={30}
-slidesPerView={4}
-navigation
-autoplay={{ delay: 3000 }}
-loop={true}
+                while (finalItems.length < 12) {
+                    finalItems = [...finalItems, ...items];
+                }
 
-breakpoints={{
-0: { slidesPerView: 1 },
-600: { slidesPerView: 2 },
-900: { slidesPerView: 3 },
-1200: { slidesPerView: 4 }
-}}
->
+                setProducts(finalItems);
 
-{products.map((product) => (
+            })
+            .catch(err => console.log(err));
 
-<SwiperSlide key={product.id}>
+    }, []);
 
-<div className="best-card">
+    return (
 
-<div className="best-image">
-<img src={product.image} alt={product.name}/>
-</div>
+        <section className="best-sellers">
 
-<h3>{product.name}</h3>
+            <div className="container">
 
-<p className="price">{product.price}</p>
+                <h2 className="section-title">New Arrivals</h2>
 
-<button className="view-btn">View Product</button>
+                <Swiper
+                    modules={[Navigation, Autoplay]}
 
-</div>
+                    spaceBetween={30}
+                    slidesPerView={2.5}   // ✅ stable
 
-</SwiperSlide>
+                    centeredSlides={true}
 
-))}
+                    loop={products.length >= 6}  // ✅ FIX 2
+                    loopAdditionalSlides={6}
 
-</Swiper>
+                    autoplay={{
+                        delay: 2500,
+                        disableOnInteraction: false
+                    }}
 
-</div>
+                    speed={800}
+                    navigation
 
-</section>
+                    breakpoints={{
+                        0: { slidesPerView: 1 },
+                        768: { slidesPerView: 2 },
+                        1024: { slidesPerView: 2.5 }
+                    }}
 
-);
+                    className="best-swiper"
+                >
+
+                    {products.map((product, index) => (
+
+                        <SwiperSlide key={`${product._id}-${index}`}>
+                            {/* ✅ FIX 3: unique key */}
+
+                            <Link
+                                to={`/product/${product._id}`}
+                                className="product-link"
+                            >
+
+                                <div className="best-card">
+
+                                    <div className="best-image">
+
+                                        <img
+                                            src={`http://localhost:5000/uploads/${product.image}`}
+                                            alt={product.name}
+                                        />
+
+                                    </div>
+
+                                    <h3>{product.name}</h3>
+
+                                    <p className="price">
+                                        ₹{product.price}
+                                    </p>
+
+                                    <button className="view-btn">
+                                        View Product
+                                    </button>
+
+                                </div>
+
+                            </Link>
+
+                        </SwiperSlide>
+
+                    ))}
+
+                </Swiper>
+
+            </div>
+
+        </section>
+
+    );
 
 }
 

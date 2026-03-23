@@ -1,0 +1,316 @@
+/* ================= MAIN ================= */
+
+.admin-page {
+    min-height: 100vh;
+    background: #f5f5f5;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* ================= LAYOUT ================= */
+
+.admin-container {
+    width: 100%;
+    max-width: 1100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+/* ================= CARD ================= */
+
+.admin-card {
+    background: white;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-card h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+/* ================= FORM ================= */
+
+.admin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.admin-form input,
+.admin-form textarea,
+.admin-form select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.admin-form input:focus,
+.admin-form textarea:focus,
+.admin-form select:focus {
+    border-color: #c9a227;
+    outline: none;
+    box-shadow: 0 0 5px rgba(201, 162, 39, 0.3);
+}
+
+/* TEXTAREA */
+
+.admin-form textarea {
+    resize: none;
+    height: 100px;
+}
+
+/* BUTTON */
+
+.admin-form button {
+    padding: 12px;
+    background: #c9a227;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.admin-form button:hover {
+    background: #b8951f;
+}
+
+/* FILE INPUT */
+
+.admin-form input[type="file"] {
+    background: #fafafa;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* IMAGE PREVIEW */
+
+.image-preview {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+/* ================= CATEGORY ================= */
+
+.category-add {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.category-add input {
+    width: 100%;
+}
+
+.category-add button {
+    background: #c9a227;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* ================= CATEGORY LIST ================= */
+
+.category-list {
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.category-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    background: #fafafa;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    transition: 0.2s;
+}
+
+.category-item:hover {
+    background: #f0f0f0;
+}
+
+.delete-btn {
+    background: red;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* ================= PREMIUM CHECKBOX ================= */
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.checkbox input {
+    display: none;
+}
+
+/* SWITCH */
+
+.checkbox span {
+    width: 42px;
+    height: 22px;
+    background: #ddd;
+    border-radius: 20px;
+    position: relative;
+    transition: 0.3s;
+}
+
+/* CIRCLE */
+
+.checkbox span::before {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: white;
+    border-radius: 50%;
+    top: 2px;
+    left: 3px;
+    transition: 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* ACTIVE */
+
+.checkbox input:checked+span {
+    background: linear-gradient(45deg, #c9a227, #ffd700);
+}
+
+.checkbox input:checked+span::before {
+    transform: translateX(20px);
+}
+
+
+
+
+/* PRODUCT LIST */
+
+.product-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.product-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #fafafa;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.product-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.product-info {
+    flex: 1;
+}
+
+.product-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.product-actions button {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background: #c9a227;
+    color: white;
+}
+
+.category-img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* ================= TABLET ================= */
+
+@media(max-width:1024px) {
+
+    .admin-container {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:600px) {
+
+    .admin-page {
+        padding: 20px 10px;
+    }
+
+    .admin-card {
+        padding: 20px;
+    }
+
+    .admin-card h1 {
+        font-size: 20px;
+    }
+
+    .admin-form input,
+    .admin-form textarea,
+    .admin-form select {
+        font-size: 13px;
+        padding: 10px;
+    }
+
+    .admin-form button {
+        padding: 10px;
+    }
+
+    .image-preview {
+        height: 150px;
+    }
+
+    .category-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .delete-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+}

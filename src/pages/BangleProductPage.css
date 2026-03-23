@@ -1,0 +1,108 @@
+.product-page{
+padding:80px 0;
+background:#fff;
+}
+
+.product-container{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+padding:0 20px;
+align-items:center;
+}
+
+/* IMAGE */
+
+.product-image img{
+width:100%;
+border-radius:14px;
+object-fit:cover;
+}
+
+/* DETAILS */
+
+.product-details h1{
+font-size:34px;
+margin-bottom:10px;
+}
+
+.rating{
+margin-bottom:15px;
+color:#555;
+}
+
+/* PRICE */
+
+.price-section{
+display:flex;
+gap:15px;
+align-items:center;
+margin-bottom:20px;
+}
+
+.old-price{
+text-decoration:line-through;
+color:#999;
+font-size:18px;
+}
+
+.new-price{
+font-size:28px;
+font-weight:700;
+color:#000;
+}
+
+/* DESCRIPTION */
+
+.product-description{
+margin-bottom:25px;
+line-height:1.6;
+color:#555;
+}
+
+/* FEATURES */
+
+.features{
+margin-bottom:30px;
+padding-left:18px;
+}
+
+.features li{
+margin-bottom:8px;
+}
+
+/* BUTTON */
+
+.add-cart-btn{
+padding:14px 30px;
+border:none;
+background:#c9a227;
+color:white;
+font-size:16px;
+font-weight:600;
+border-radius:8px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.add-cart-btn:hover{
+background:#b8951f;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+.product-container{
+grid-template-columns:1fr;
+}
+
+.product-details h1{
+font-size:26px;
+}
+
+.new-price{
+font-size:24px;
+}
+
+}

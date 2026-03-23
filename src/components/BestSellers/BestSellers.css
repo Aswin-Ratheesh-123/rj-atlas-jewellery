@@ -10,75 +10,37 @@
     font-weight: 600;
 }
 
-.best-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+/* SWIPER */
+
+.best-swiper {
+    width: 90%;
+    margin: auto;
+    padding-bottom: 40px;
 }
 
-.best-card {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-    text-align: center;
-    transition: 0.4s;
+/* CENTER FIX */
+
+.best-swiper .swiper-wrapper {
+    align-items: center;
 }
 
-.best-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+.swiper-slide {
+    display: flex;
+    justify-content: center;
 }
 
-.best-image {
-    overflow: hidden;
-    border-radius: 10px;
-    margin-bottom: 15px;
-}
+/* REMOVE LINK STYLE */
 
-.best-image img {
-    width: 100%;
-    transition: 0.4s;
-}
-
-.best-card:hover img {
-    transform: scale(1.1);
-}
-
-.price {
-    color: #c9a227;
-    font-weight: 600;
-    margin: 10px 0;
-}
-
-.view-btn {
-    padding: 10px 25px;
-    border: none;
-    background: #c9a227;
-    color: white;
-    border-radius: 6px;
-    transition: 0.3s;
-}
-
-.view-btn:hover {
-    background: #b8951f;
-}
-
-.best-sellers {
-    padding: 80px 0;
-    background: #fafafa;
-}
-
-.section-title {
-    text-align: center;
-    font-size: 34px;
-    margin-bottom: 50px;
-    font-weight: 600;
+.product-link {
+    text-decoration: none;
+    color: inherit;
 }
 
 /* CARD */
 
 .best-card {
+    width: 100%;
+    max-width: 320px;
     background: white;
     padding: 20px;
     border-radius: 12px;
@@ -100,6 +62,8 @@
 
 .best-image img {
     width: 100%;
+    height: 220px;
+    object-fit: cover;
     transition: 0.4s;
 }
 
@@ -107,11 +71,15 @@
     transform: scale(1.1);
 }
 
+/* PRICE */
+
 .price {
     color: #c9a227;
     font-weight: 600;
     margin: 10px 0;
 }
+
+/* BUTTON */
 
 .view-btn {
     padding: 10px 25px;
@@ -120,16 +88,39 @@
     color: white;
     border-radius: 6px;
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .view-btn:hover {
     background: #b8951f;
+}
+
+/* 🔥 PREMIUM CENTER EFFECT */
+
+.swiper-slide {
+    opacity: 0.5;
+    transform: scale(0.85);
+    transition: 0.5s ease;
+}
+
+.swiper-slide-active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* DESKTOP ENHANCEMENT */
+
+@media (min-width:1024px) {
+
+    .swiper-slide-active .best-card {
+        transform: scale(1.08);
+    }
+
 }
 
 /* SWIPER ARROWS */
 
 .swiper-button-next,
 .swiper-button-prev {
-    padding-bottom:30px ;
     color: #c9a227;
 }

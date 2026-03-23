@@ -18,7 +18,7 @@
     align-items: center;
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(12px);
-    transition: 0.8s ease;
+    transition: 0.6s ease;
     z-index: 1000;
 }
 
@@ -29,21 +29,9 @@
 
 /* LOGO */
 
-.logo {
-    display: flex;
-    align-items: center;
-}
-
 .logo img {
     height: 58px;
-    width: auto;
-
-
 }
-
-/* Slight shrink on scroll */
-
-
 
 /* NAV LINKS */
 
@@ -60,10 +48,9 @@
     font-size: 15px;
     font-weight: 500;
     position: relative;
-    transition: 0.3s;
 }
 
-/* underline animation */
+/* underline */
 
 .nav-links li a::after {
     content: "";
@@ -89,6 +76,44 @@
     color: #c9a227;
 }
 
+/* NAV ACTIONS */
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* CART ICON */
+
+.cart-icon {
+    position: relative;
+    font-size: 22px;
+    color: #111;
+    transition: 0.3s;
+}
+
+.cart-icon:hover {
+    color: #c9a227;
+    transform: scale(1.1);
+}
+
+/* CART COUNT BADGE */
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background: #c9a227;
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 6px;
+    border-radius: 50%;
+    min-width: 18px;
+    text-align: center;
+}
+
 /* MENU ICON */
 
 .menu-icon {
@@ -96,7 +121,6 @@
     font-size: 26px;
     cursor: pointer;
     color: #111;
-    transition: 0.3s;
 }
 
 .menu-icon.rotate {
@@ -114,11 +138,6 @@
     background: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(4px);
     z-index: 998;
-}
-
-.material-symbols-outlined {
-    font-size: 30px;
-    line-height: 1;
 }
 
 /* MOBILE */
@@ -152,4 +171,11 @@
         right: 0;
     }
 
+    .nav-actions {
+        gap: 15px;
+    }
+
+    .cart-icon {
+        font-size: 20px;
+    }
 }
